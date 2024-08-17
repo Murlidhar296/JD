@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUSTGO Vehicle Inquiry Form</title>
+    <link rel="icon" href="logo.svg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            /*background: url('matrix-background.jpg') no-repeat center center fixed;*/
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding : 1rem 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(173, 216, 230, 0.5);
+            padding: 30px;
+            width: 70%;
+            max-width: 900px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 0 10px;
+            width: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-check {
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #8e9eab;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #eef2f3;
+            color: black;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+            /*border-radius: 50%;*/
+            /*box-shadow: 0 0 20px rgba(173, 216, 230, 0.5);*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.svg" alt="Logo">
+        </div>
+        <form action="submit_form1.php" method="post" enctype="multipart/form-data">
+            <!-- Personal Info Fieldset -->
+            <fieldset>
+                <legend>Personal Info</legend>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_number">Mobile Number:</label>
+                    <input type="tel" class="form-control" id="mobile_number" name="mobile_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp_number">WhatsApp Number:</label>
+                    <input type="tel" class="form-control" id="whatsapp_number" name="whatsapp_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                </div>
+            </fieldset>
+            
+            <!-- Vehicle Info Fieldset -->
+            <fieldset>
+                <legend>Vehicle Info</legend>
+                <div class="form-group">
+                    <label for="vehicle_name">Vehicle Name:</label>
+                    <input type="text" class="form-control" id="vehicle_name" name="vehicle_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle_model_number">Vehicle Model Number:</label>
+                    <input type="text" class="form-control" id="vehicle_model_number" name="vehicle_model_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle_model_year">Vehicle Model Year:</label>
+                    <input type="number" class="form-control" id="vehicle_model_year" name="vehicle_model_year" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle_color">Vehicle Color:</label>
+                    <input type="text" class="form-control" id="vehicle_color" name="vehicle_color" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle_km">Vehicle KM:</label>
+                    <input type="number" class="form-control" id="vehicle_km" name="vehicle_km" required>
+                </div>
+                <div class="form-group">
+                     <label for="engine_no">Engine Number</label>
+                     <input type="text" class="form-control" id="engine_no" name="engine_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="chassis_no">Chassis Number:</label>
+                    <input type="text" class="form-control" id="chassis_no" name="chassis_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle_images">Vehicle Images:</label>
+                    <input type="file" class="form-control-file" id="vehicle_images" name="vehicle_images[]" multiple>
+                </div>
+            </fieldset>
+            
+            <!-- Are You Interested Fieldset -->
+            <fieldset>
+                <legend>Are You Interested?</legend>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="interested_yes" name="interested" value="yes" required>
+                    <label class="form-check-label" for="interested_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="interested_no" name="interested" value="no" required>
+                    <label class="form-check-label" for="interested_no">No</label>
+                </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
